@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html>
+<title>MSA Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.dropdown {position: relative;display: inline-block;border-radius: 10px;}
+.dropdown-content {display: none;position: absolute;background-color: khaki;min-width: 160px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+.dropdown-content a {color: black;padding: 12px 16px;text-decoration: none;display: block;border-radius: 10px;}
+.dropdown-content a:hover {background-color: gold;color: black;}
+.dropdown:hover .dropdown-content {display: block;border-radius: 10px;}
+#myImg{transition: 0.3s;cursor: pointer;border-radius: 3%;}
+.flip-card {background-color: transparent;width: 500px;height: 500px;perspective: 1000px;}
+.flip-card-inner {position: relative;width: 100%;height: 100%;text-align: center;transition: transform 0.6s;transform-style: preserve-3d;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);}
+.flip-card:hover .flip-card-inner {transform: rotateY(180deg);}
+.flip-card-front, .flip-card-back {padding:10px;border-radius: 5%;position: absolute;width: 100%;height: 100%;-webkit-backface-visibility: hidden;backface-visibility: hidden;}
+.flip-card-front {background-color: lightcoral;color: black;}
+.flip-card-back {background-color: khaki;color: black;transform: rotateY(180deg);}
+.heart{cursor:pointer;user-select:none;color:red}
+.column1 {float:left;width: 32%;padding: 0 10px;}.row1 {margin-left :100px;}
+.row1:after{content: "";display: table;clear: both;}
+.card {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);padding: 16px;background-color: transparent;border-radius: 5%;}
+i{padding: 10px;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Times New Roman" ;color:white;} h3{color: black;}
+body, html {height: 100%;background-image: url('work.jpg');background-repeat: no-repeat;background-size: 200%;}
+.btn {border: none;outline: none;padding: 12px 16px;background-color: cornflowerblue;cursor: pointer;border-radius: 10px;}
+.btn:hover {background-color: royalblue;color: white;}
+.btn.active {background-color: royalblue;color: white;}
+.row {margin: 10px -16px;}
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {padding: 8px;}
+/* Create three equal columns that floats next to each other */
+.column {float: left;width: 33.33%;display: none;}
+/* Clear floats after rows */ 
+.row:after {content: "";display: table;clear: both;}
+.show {display: block;}
+.w3-bar .w3-button {padding: 16px;}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-pale-yellow w3-card" id="myNavbar">
+      <a href="proj.html" class="w3-bar-item w3-button w3-wide rainbow-text" >
+      <img src="logo.jpeg" style="width: 170px; height: 60px;"> </a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small w3-large">
+      <a href="about.html" class="w3-bar-item w3-button w3-hover-yellow"><i class="fa fa-user" style="font-size:25px"></i> ABOUT</a>
+      <a href="work.html" class="w3-bar-item w3-button w3-hover-yellow"><i class="fa fa-th" style="font-size:25px"></i> WORK</a>
+      <a href="contact.html" class="w3-bar-item w3-button w3-hover-yellow"><i class="fa fa-envelope" style="font-size:25px"></i> CONTACT</a>
+      <a href="login.html" class="w3-bar-item w3-button w3-hover-yellow"><i class="fa fa-power-off" style="font-size:25px"></i>LOGOUT</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="about.html" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="work.html" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+  <a href="contact.html" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  <a href="login.html" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
+</nav>
+
+
+<!-- Work Section -->
+<div class="w3-container" style="padding:128px 16px" id="work">
+  <h1 class="w3-center">RESULT</h1>
+  
+  <center>
+  	<div class="dropdown">
+  		<input type="button" class="w3-button w3-round w3-red w3-padding-large w3-large w3-margin-top w3-hover-green" value=" Devices ">
+  		<div class="dropdown-content w3-red w3-hover-green" >
+		   <a href="#" onclick="toggle('myBtnContainer');document.getElementById('devices').value = 'Tubelight';">Tubelight</a>
+		   <a href="#" onclick="toggle('myBtnContainer');document.getElementById('devices').value = 'Fan';">Fan</a>
+		</div>
+  </div><br><br>
+  <input id="devices" class="w3-round-large w3-center w3-large" type="text" name="Devices" value="">
+  <br><br>
+  <div id="myBtnContainer" style="display:none;">
+  <div class="dropdown">
+  <button class="btn" > Yearly</button>
+  <div class="dropdown-content">
+    <a href="#" onclick="toggle('graph1');">2008</a>
+    <a href="#" onclick="toggle('graph2');">2009</a>
+    <a href="#" onclick="toggle('graph3');">2010</a>
+  </div>
+  </div>
+  <div class="dropdown">
+  <button class="btn" > Monthly</button>
+  <div class="dropdown-content">
+    <a href="#" onclick="toggle('graph4');">Jan - Feb</a>
+    <a href="#" onclick="toggle('graph5');">Feb - March</a>
+    <a href="#" onclick="toggle('graph6');">March - April</a>
+    <a href="#" onclick="toggle('graph7');">April - May</a>
+  </div>
+  </div>
+  <div class="dropdown">
+  <button class="btn"> Weekly</button>
+  <div class="dropdown-content">
+    <a href="#" onclick="toggle('graph8');">Week1</a>
+    <a href="#" onclick="toggle('graph9');">Week2</a>
+    <a href="#" onclick="toggle('graph10');">Week3</a>
+    <a href="#" onclick="toggle('graph11');">Week4</a>
+  </div>
+  </div>
+<br><br>
+  <div class="w3-container" id="graph1" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/twoeight.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph2" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/twonine.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph3" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/twoten.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph4" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/JF.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph5" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/FM.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph6" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/MA.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph7" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/AM.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph8" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/Week1.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph9" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/Week2.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph10" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/Week3.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  <div class="w3-container" id="graph11" style="display:none">
+      <iframe width="100%" height="500px" src="file:///C:/Arv/ASEM8/Project/proj/graphs/Week4.html" frameborder="0" allowfullscreen>
+ </iframe>
+  </div>
+  </center>
+<br>
+<center><h1><b><u>USE THEM WISELY!</u></b></h1></center><br>
+<div class="row1">
+  <div class="column1">
+    <div class="card flip-card w3-hover-shadow">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img id="myImg" src="tube1.png" alt="MECTubelight" style="width:100%" onclick="onClick(this)" class=" w3-hover-opacity">
+            <h3><b>Tubelight</b></h3>
+            <center><p>A T12 tube light with an electromagnetic ballast typically consumes 55W of electricity but a T5 with electronic ballast will consume only 28W of electricity.</p>
+            </center>
+          </div>
+        <div class="flip-card-back">
+            <img id="myImg" src="tube2.png" alt="LECTubelight" style="width:100%" onclick="onClick(this)" class=" w3-hover-opacity">
+            <h3><b>Tubelight</b><i onclick="myFunction(this)" class="heart fa fa-heart-o w3-right"></i></h3>
+            <center><p>A LED tube light with an Cool incandescent effect typically consumes 20W of electricity.They do not cause heat build-up.
+              <br>Energy efficiency: LEDs come with a life term of 10-15 years consume up to 50% less power than CFLs and 80% lesser than incandescent fluorescent tube as  0.20 units.</p>
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column1">
+    <div class="card flip-card w3-hover-shadow">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img id="myImg" src="fan1.png" alt="MECFan" style="width:100%" onclick="onClick(this)" class=" w3-hover-opacity">
+            <h3><b>Fan</b></h3>
+            <center><p>Old models and inexpensive fans can guzzle up to 90 watts. A study by Bijlibachao.com shows an eight-year-old fan consumes as much as 92 watts on full speed, twice as much a BEE-rated fan.</p>
+            </center>
+          </div>
+        <div class="flip-card-back">
+            <img id="myImg" src="fan2.png" alt="LECFan" style="width:100%" onclick="onClick(this)" class=" w3-hover-opacity">
+            <h3><b>Fan</b><i onclick="myFunction(this)" class="heart fa fa-heart-o w3-right"></i></h3>
+            <center><p>Atomberg fans consumes 65% less power than the ordinary ceiling fans, which means you save more on your electricity bill.
+              <br>Replacing your old fan with a power-saver model makes sense as a BEE rated fan consumes around 50 watts.</p>
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column1">
+    <div class="card flip-card w3-hover-shadow">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img id="myImg" src="mixer1.png" alt="MECGrinder" style="width:100%" onclick="onClick(this)" class=" w3-hover-opacity">
+            <h3><b>Mixer</b></h3>
+            <center><p>The rated power of a mixer grinder is approximately 500 watt. If you use your mixer grinder for 1 hour daily it will consume 0.5 kWh of electricity in a day and 15 kWh of electricity in the entire month.</p>
+            </center>
+          </div>
+        <div class="flip-card-back">
+            <img id="myImg" src="mixer2.png" alt="LECFoodProcessor" style="width:100%" onclick="onClick(this)" class=" w3-hover-opacity">
+            <h3><b>Food Processor</b><i onclick="myFunction(this)" class="heart fa fa-heart-o w3-right"></i></h3>
+            <center><p>The power required for such work is anywhere between 200-400 watts.<br> The bigger, more powerful ones can run for longer without heating up the motor. Overheating is a problem faced when you try to over work your food processor.</p>
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><br>
+  </div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image" >
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+
+<!-- Footer -->
+
+<footer class="w3-center w3-black w3-padding-16 w3-bottom">
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-mobile" style="font-size:30px"></i> 19122 (24x7 Toll Free) 
+  <i class="fa fa-facebook-official w3-text-blue w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-text-purple w3-hover-opacity"></i> 
+  <i class="fa fa-pinterest-p w3-text-red w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-text-white w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-text-cyan w3-hover-opacity"></i>
+</div>
+<p>Powered by MSA</p>
+</footer>
+
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+function myFunction(x) {
+  x.classList.toggle("fa-heart");
+  x.classList.toggle("fa-heart-o");
+}
+
+function toggle(id) {
+  var btn = document.getElementById(id);
+  if (btn.style.display === 'block') {
+    btn.style.display = 'none';
+  } else {
+    btn.style.display = 'block';
+  }
+}
+</script>
+
+</body>
+</html>
